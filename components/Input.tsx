@@ -14,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       </label>
       <input
         className={`text-black p-2 rounded-lg outline outline-2 focus:outline-blue-500`}
-        name={label}
+        id={label}
         placeholder={placeholder}
         ref={ref}
         required={required}
