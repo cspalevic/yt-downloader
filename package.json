@@ -13,6 +13,7 @@
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.4",
     "@ffmpeg/util": "^0.12.0",
+    "@vercel/analytics": "^1.0.2",
     "next": "13.4.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
