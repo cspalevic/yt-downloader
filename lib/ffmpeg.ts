@@ -5,7 +5,6 @@ const FFMPEG_SOURCE_URL = "https://unpkg.com/@ffmpeg/core@0.12.2/dist/umd";
 
 let ffmpegInstance: FFmpeg;
 
-
 export const trySetup = async (): Promise<boolean> => {
   try {
     ffmpegInstance = new FFmpeg();
