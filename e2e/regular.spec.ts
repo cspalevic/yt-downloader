@@ -6,12 +6,12 @@ const YT_VIDEO_URL =
   "https://www.youtube.com/watch?v=cGc_NfiTxng&pp=ygUNZ2FuZ25hbSBzdHlsZQ%3D%3D";
 
 const OUTPUT_PATHS = {
-  FULL_VIDEO: "e2e-output/full.mp4",
+  FULL_VIDEO: "full.mp4",
 };
 
 test("Form errors", async ({ page }) => {
   await page.goto("/");
-  await page.waitForSelector('input[id="Start Range"]');
+  await page.waitForSelector("#start");
   await page.getByRole("button").click();
   const form = await page.getByRole("form");
   const formValidity = await form.evaluate((element: HTMLFormElement) =>
@@ -22,7 +22,7 @@ test("Form errors", async ({ page }) => {
 
 test("Basic url download", async ({ page }) => {
   await page.goto("/");
-  await page.getByLabel("URL").fill(YT_VIDEO_URL);
+  await page.getByRole("textbox", { name: "url" }).fill(YT_VIDEO_URL);
   await page.getByRole("button").click();
   const form = await page.getByRole("form");
   const formValidity = await form.evaluate((element: HTMLFormElement) =>
