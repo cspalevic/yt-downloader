@@ -5,8 +5,10 @@ import { cutVideo, trySetup } from "@/lib/ffmpeg";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { InputShimmer } from "@/components/Shimmer";
+import { Spinner } from "@/components/Spinner";
 
 export default function Main() {
+  const [isVideoDownloading, setIsVideoDownloading] = useState(false);
   const [isRangeSupported, setIsRangeSupported] = useState<boolean | null>(
     null,
   );
@@ -20,6 +22,7 @@ export default function Main() {
     if (!formRef.current?.checkValidity()) return;
     event.preventDefault();
 
+    setIsVideoDownloading(true);
     const response = await fetch("/api", {
       method: "POST",
       body: JSON.stringify({
@@ -38,6 +41,7 @@ export default function Main() {
       });
       blob = new Blob([buffer], { type: "video/mp4" });
     }
+    setIsVideoDownloading(false);
     downloadAnchor.current!.href = URL.createObjectURL(blob);
     downloadAnchor.current!.click();
   };
@@ -80,7 +84,9 @@ export default function Main() {
           />
         </div>
       )}
-      <Button onClick={tryDownload} text="Download" />
+      <Button onClick={tryDownload}>
+        {isVideoDownloading ? <Spinner /> : "Download"}
+      </Button>
       <a ref={downloadAnchor} download={true} />
     </form>
   );
