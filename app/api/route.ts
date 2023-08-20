@@ -1,5 +1,5 @@
-import { NextRequest } from "next/server";
 import { downloadVideo } from "@/lib/downloader";
+import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
   const { url } = await request.json();

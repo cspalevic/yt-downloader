@@ -1,12 +1,12 @@
 "use client";
 
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
-import va from "@vercel/analytics";
-import { cutVideo, trySetup } from "@/lib/ffmpeg";
-import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
 import { InputShimmer } from "@/components/Shimmer";
 import { Spinner } from "@/components/Spinner";
+import { cutVideo, trySetup } from "@/lib/ffmpeg";
+import va from "@vercel/analytics";
+import { MouseEventHandler, useEffect, useRef, useState } from "react";
 
 export default function Main() {
   const [isVideoDownloading, setIsVideoDownloading] = useState(false);
