@@ -1,6 +1,7 @@
 "use client";
 
 import { MouseEventHandler, useEffect, useRef, useState } from "react";
+import va from "@vercel/analytics";
 import { cutVideo, trySetup } from "@/lib/ffmpeg";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
@@ -42,6 +43,7 @@ export default function Main() {
       blob = new Blob([buffer], { type: "video/mp4" });
     }
     setIsVideoDownloading(false);
+    va.track("VideoDownload", { isRangeSupported });
     downloadAnchor.current!.href = URL.createObjectURL(blob);
     downloadAnchor.current!.click();
   };
