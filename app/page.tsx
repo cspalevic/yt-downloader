@@ -59,6 +59,7 @@ export default function Main() {
     <form
       ref={formRef}
       className="flex flex-col gap-5 p-2 w-[100%] sm:w-[550px]"
+      role="form"
     >
       <Input
         ref={urlInput}

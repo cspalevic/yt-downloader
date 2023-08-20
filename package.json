@@ -22,12 +22,14 @@
     "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.37.1",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
+    "get-video-duration": "^4.1.0",
     "postcss": "8.4.28",
     "prettier": "3.0.2",
     "prettier-plugin-organize-imports": "^3.2.3"
