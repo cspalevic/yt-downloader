@@ -1,4 +1,4 @@
-import { getInfo, downloadFromInfo } from "ytdl-core";
+import { downloadFromInfo, getInfo } from "ytdl-core";
 
 export const downloadVideo = (url: string): Promise<Buffer> => {
   return new Promise(async (resolve, reject) => {
