@@ -80,7 +80,7 @@ test("Form errors", async ({ page }) => {
     await page
       .getByRole("combobox", { name: "type" })
       .selectOption(OutputTypeMap[name]);
-    await page.getByRole("textbox", { name: "start" }).fill("02:10");
+    await page.getByRole("textbox", { name: "start" }).fill("03:20");
     await page.getByRole("button").click();
     const form = await page.getByRole("form");
     const formValidity = await form.evaluate((element: HTMLFormElement) =>
@@ -92,7 +92,7 @@ test("Form errors", async ({ page }) => {
     await download.saveAs(paths.start);
     expect(existsSync(paths.start)).toBe(true);
     const videoDuration = await getVideoDurationInSeconds(paths.start);
-    expect(Math.floor(videoDuration)).toBe(92);
+    expect(Math.floor(videoDuration)).toBe(22);
   });
 
   test(`${name} - Basic url + end range download`, async ({ page }) => {
