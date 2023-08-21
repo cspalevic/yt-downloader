@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "test:e2e": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.4",
