@@ -7,6 +7,10 @@ const mimeTypeFileOutputMap = {
   [SupportedMimeTypes.gif]: "o.gif",
   [SupportedMimeTypes.mp4]: "o.mp4",
 };
+const mimeTypeFfmpegParams = {
+  [SupportedMimeTypes.mp4]: ["-c", "copy"],
+  [SupportedMimeTypes.gif]: [],
+};
 
 let ffmpegInstance: FFmpeg;
 
@@ -44,7 +48,7 @@ export const exec = async (
     params.push("-to", end);
   }
   const outputFile = mimeTypeFileOutputMap[type];
-  params.push("-i", "video.mp4", outputFile);
+  params.push("-i", "video.mp4", ...mimeTypeFfmpegParams[type], outputFile);
   await ffmpegInstance.exec(params);
   const output = await ffmpegInstance.readFile(outputFile);
   return Buffer.from(output);
